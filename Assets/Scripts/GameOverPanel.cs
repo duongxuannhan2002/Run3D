@@ -12,7 +12,7 @@ public class GameOverPanel : MonoBehaviour
 
     void Start()
     {
-        Player = GameObject.Find("Player").transform;
+        Player = GameObject.FindWithTag("Player").transform;
     }
 
     // Update is called once per frame
@@ -24,6 +24,6 @@ public class GameOverPanel : MonoBehaviour
 
     public void RestartButton()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(2);
     }
 }

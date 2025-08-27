@@ -10,13 +10,13 @@ public class SpawCity : MonoBehaviour
     bool Spawned = false;
     void Start()
     {
-        Player = GameObject.Find("Player").gameObject;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(Player.transform.position.z > transform.position.z + 257f)
+        Player = GameObject.FindWithTag("Player").gameObject;
+        if (Player.transform.position.z > transform.position.z + 270f)
         {
             Destroy(this.gameObject);
         }

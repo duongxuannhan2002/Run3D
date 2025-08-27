@@ -8,9 +8,8 @@ public class CamScript : MonoBehaviour
     public Transform Player;
     void Start()
     {
-        
+        Player = GameObject.FindWithTag("Player").gameObject.transform;
     }
-
     // Update is called once per frame
     private void LateUpdate()
     {
