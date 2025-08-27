@@ -1129,9 +1129,11 @@ MonoBehaviour:
   playerPrefabs:
   - {fileID: 8124925575164037887, guid: 0af6740b40add2440811ea435e433a79, type: 3}
   - {fileID: 3920439249270201316, guid: 18bb3945eec86374fb242314acfadb43, type: 3}
+  - {fileID: 7173108556689483290, guid: 4f9209c606a97bf488b9245b50839367, type: 3}
   data:
   - {fileID: 11400000, guid: 1024e77ce8ca0b94e92b97b9ab2f416e, type: 2}
   - {fileID: 11400000, guid: f846404c7a76c7641a99d8d1e0e1ab7a, type: 2}
+  - {fileID: 11400000, guid: ab7d5ad02aa71234c92d8126011215db, type: 2}
   PlayButton: {fileID: 1396869785}
   BuyButton: {fileID: 61895571}
   CharacterName: {fileID: 392790223}

@@ -41,8 +41,10 @@ public class PlayerController : MonoBehaviour
         {
             // chạy thẳng
             transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + RunSpeed * Time.deltaTime);
-            // Detect Swipe (Mobile)
+            // Mobile
             DetectSwipe();
+            // PC
+            DetectKeyboard();
             // tăng tốc dần
             if (RunSpeed <= 20f)
             {
@@ -83,6 +85,22 @@ public class PlayerController : MonoBehaviour
                 }
                 isSwipe = false;
             }
+        }
+    }
+
+    private void DetectKeyboard()
+    {
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            MoveLeft();
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            MoveRight();
+        }
+        if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            Jump();
         }
     }
 
