@@ -28,10 +28,10 @@ public class UIController : MonoBehaviour
     {
         TextCoin.SetText(PlayerPrefs.GetInt("Coin",0).ToString());
         TextScore.SetText(Player.transform.position.z.ToString("00.0") + "m");
-        if(Player.transform.position.z> PlayerPrefs.GetFloat("BestScore", 0))
-        {
-            PlayerPrefs.SetFloat("BestScore", Player.transform.position.z);
-        }
+        //if(Player.transform.position.z> PlayerPrefs.GetFloat("BestScore", 0))
+        //{
+        //    PlayerPrefs.SetFloat("BestScore", Player.transform.position.z);
+        //}
     }
     // Start is called before the first frame update
     public void OnclickPause()

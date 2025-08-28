@@ -6,7 +6,7 @@ public class SpawCity : MonoBehaviour
 {
     // Start is called before the first frame update
     GameObject Player;
-    [SerializeField] GameObject City;
+    [SerializeField] GameObject[] City;
     bool Spawned = false;
     void Start()
     {
@@ -22,7 +22,9 @@ public class SpawCity : MonoBehaviour
         }
         if (Player.transform.position.z > transform.position.z && !Spawned)
         {
-            Instantiate(City, new Vector3(transform.position.x, transform.position.y, transform.position.z + 257f), transform.rotation);
+            int value = Random.Range(0, 2);
+            Debug.Log(value);
+            Instantiate(City[value], new Vector3(transform.position.x, transform.position.y, transform.position.z + 257f), transform.rotation);
             Spawned = true;
         }
     }

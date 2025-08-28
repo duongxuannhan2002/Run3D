@@ -445,14 +445,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8254717, g: 0.9773763, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 7ea41c5f4c53dd24cb79f34bde0a7d3d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1130,10 +1130,12 @@ MonoBehaviour:
   - {fileID: 8124925575164037887, guid: 0af6740b40add2440811ea435e433a79, type: 3}
   - {fileID: 3920439249270201316, guid: 18bb3945eec86374fb242314acfadb43, type: 3}
   - {fileID: 7173108556689483290, guid: 4f9209c606a97bf488b9245b50839367, type: 3}
+  - {fileID: 8015995254886081226, guid: 65e679529eb118745a2f8b9f1d27b4d4, type: 3}
   data:
   - {fileID: 11400000, guid: 1024e77ce8ca0b94e92b97b9ab2f416e, type: 2}
   - {fileID: 11400000, guid: f846404c7a76c7641a99d8d1e0e1ab7a, type: 2}
   - {fileID: 11400000, guid: ab7d5ad02aa71234c92d8126011215db, type: 2}
+  - {fileID: 11400000, guid: fc3e98c2da4fdac45862b21534120845, type: 2}
   PlayButton: {fileID: 1396869785}
   BuyButton: {fileID: 61895571}
   CharacterName: {fileID: 392790223}
@@ -2110,8 +2112,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278255469
+  m_fontColor: {r: 0.42579055, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -2244,8 +2246,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281479730
-  m_fontColor: {r: 0.19607843, g: 0.19607843, b: 0.19607843, a: 1}
+    rgba: 4278255469
+  m_fontColor: {r: 0.42579055, g: 1, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

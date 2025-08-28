@@ -19,6 +19,10 @@ public class MenuStart : MonoBehaviour
         SceneManager.LoadScene(3);
     }
 
+    public void OnClickRank()
+    {
+        SceneManager.LoadScene(4);
+    }
     public void OnClickQuit()
     {
         Application.Quit();

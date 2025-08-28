@@ -1,4 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public bool IsGameOver = false;
     [SerializeField] Animator PlayerAnimator;
     public static bool isGrounded = true;
+    public static bool isJump = false;
 
     // --- Swipe detect ---
     private Vector2 startTouchPos, endTouchPos;
@@ -46,7 +49,7 @@ public class PlayerController : MonoBehaviour
             // PC
             DetectKeyboard();
             // tăng tốc dần
-            if (RunSpeed <= 20f)
+            if (RunSpeed <= 30f)
             {
                 RunSpeed += 0.1f * Time.deltaTime;
             }
@@ -123,6 +126,7 @@ public class PlayerController : MonoBehaviour
             rb.velocity = Vector3.up * JumForce;
             StartCoroutine(JumpAnim());
             isGrounded = false;
+            isJump = true;
             AudioManager.Instance.PlaySoundJump();
         }
     }
@@ -144,6 +148,10 @@ public class PlayerController : MonoBehaviour
         else if (CurrentPos == 2) targetPos.x = RightPos.position.x;
 
         transform.position = Vector3.MoveTowards(transform.position, targetPos, SideSpeed * Time.deltaTime);
+        if (!isGrounded && !isJump)
+        {
+            rb.AddForce(Vector3.down * 50f, ForceMode.Acceleration);
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -160,6 +168,7 @@ public class PlayerController : MonoBehaviour
         if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Car"))
         {
             isGrounded = true;
+            isJump = false;
         }
     }
 
