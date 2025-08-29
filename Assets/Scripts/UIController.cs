@@ -12,6 +12,7 @@ public class UIController : MonoBehaviour
     public GameObject PausePanel;
     public GameObject PauseButton;
     public GameObject StartButton;
+    public GameObject ImageMagnet;
 
     private void Awake()
     {
@@ -32,6 +33,14 @@ public class UIController : MonoBehaviour
         //{
         //    PlayerPrefs.SetFloat("BestScore", Player.transform.position.z);
         //}
+        if (PlayerController.hasMagnet)
+        {
+            if(!ImageMagnet.activeSelf) ImageMagnet.SetActive(true);
+        }
+        else
+        {
+            if(ImageMagnet.activeSelf) ImageMagnet.SetActive(false);
+        }
     }
     // Start is called before the first frame update
     public void OnclickPause()

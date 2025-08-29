@@ -12,6 +12,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip bgm;
     public AudioClip jumpSound;
     public AudioClip fallSound;
+    public AudioClip coinSound;
 
     // Trạng thái bật/tắt
     public bool isMusicOn;
@@ -94,5 +95,11 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-
+    public void PlaySoundCoin()
+    {
+        if (isSfxOn)
+        {
+            sfxSource.PlayOneShot(coinSound);
+        }
+    }
 }

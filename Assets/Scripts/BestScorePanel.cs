@@ -31,9 +31,9 @@ public class HighScoreDisplay : MonoBehaviour
         for (int i = 0; i < rankTexts.Length; i++)
         {
             if (i < highScores.Count)
-                rankTexts[i].SetText((i + 1) + ". " + highScores[i].ToString("00.0") + "m");
+                rankTexts[i].SetText(highScores[i].ToString("00.0") + "m");
             else
-                rankTexts[i].SetText((i + 1) + ". ---");
+                rankTexts[i].SetText("---");
         }
     }
 

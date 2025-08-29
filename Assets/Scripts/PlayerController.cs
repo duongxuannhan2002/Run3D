@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] Animator PlayerAnimator;
     public static bool isGrounded = true;
     public static bool isJump = false;
+    public static bool hasMagnet = false;
 
     // --- Swipe detect ---
     private Vector2 startTouchPos, endTouchPos;
@@ -140,14 +141,16 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        // Di chuyển sang lane
-        Vector3 targetPos = transform.position;
+        if (!IsGameOver)
+        {
+            Vector3 targetPos = transform.position;
 
-        if (CurrentPos == 0) targetPos.x = CenterPos.position.x;
-        else if (CurrentPos == 1) targetPos.x = LeftPos.position.x;
-        else if (CurrentPos == 2) targetPos.x = RightPos.position.x;
+            if (CurrentPos == 0) targetPos.x = CenterPos.position.x;
+            else if (CurrentPos == 1) targetPos.x = LeftPos.position.x;
+            else if (CurrentPos == 2) targetPos.x = RightPos.position.x;
 
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, SideSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPos, SideSpeed * Time.deltaTime);
+        }
         if (!isGrounded && !isJump)
         {
             rb.AddForce(Vector3.down * 50f, ForceMode.Acceleration);
@@ -170,6 +173,12 @@ public class PlayerController : MonoBehaviour
             isGrounded = true;
             isJump = false;
         }
+
+        if (collision.collider.CompareTag("Magnet"))
+        {
+            ActivateMagnet();
+            Destroy(collision.collider.gameObject);
+        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -187,5 +196,18 @@ public class PlayerController : MonoBehaviour
         IsGameStarted = true;
         PlayerAnimator.SetInteger("isRunning", 1);
         PlayerAnimator.speed = 1.2f;
+    }
+
+    public void ActivateMagnet(float duration = 7f)
+    {
+        if (hasMagnet) StopCoroutine("MagnetCountdown");
+        hasMagnet = true;
+        StartCoroutine(MagnetCountdown(duration));
+    }
+
+    private IEnumerator MagnetCountdown(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+        hasMagnet = false;
     }
 }

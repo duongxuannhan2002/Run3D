@@ -627,6 +627,7 @@ MonoBehaviour:
   bgm: {fileID: 8300000, guid: 7819a724114e6a447a54ead0e07b1099, type: 3}
   jumpSound: {fileID: 8300000, guid: 04a5e0f5ccd778949bd2b222d2a0af0e, type: 3}
   fallSound: {fileID: 8300000, guid: 02e8f9b55203d9b4687ab1b94b522bfa, type: 3}
+  coinSound: {fileID: 8300000, guid: 8ec353750e1e5e04690cf3bf8dfbc8d6, type: 3}
   isMusicOn: 0
   isSfxOn: 0
 --- !u!82 &1157827162

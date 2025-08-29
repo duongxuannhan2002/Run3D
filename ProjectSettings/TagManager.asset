@@ -8,6 +8,7 @@ TagManager:
   - Car
   - Coin
   - Ground
+  - Magnet
   layers:
   - Default
   - TransparentFX
