@@ -183,16 +183,18 @@ public class PlayerController : MonoBehaviour
             playerCollider.height /= 3;
             playerCollider.center = new Vector3(0, -0.3f, 0);
             StartCoroutine(RollAnim());
+            PlayerAnimator.SetInteger("isRunning", 0);
             AudioManager.Instance.PlaySoundJump();
         }
     }
     IEnumerator RollAnim()
     {
         PlayerAnimator.SetFloat("isRoll", 1);
-        yield return new WaitForSeconds(0.6f);
+        yield return new WaitForSeconds(0.4f);
         playerCollider.height *= 3;
         playerCollider.center = new Vector3(0, 0, 0);
         PlayerAnimator.SetFloat("isRoll", 0);
+        PlayerAnimator.SetInteger("isRunning", 1);
         isRoll = false;
     }
     
@@ -277,7 +279,6 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJump = false;
-            PlayerAnimator.SetInteger("isRunning", 1);
             Debug.Log("hello");
         }
 
@@ -409,5 +410,6 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector3(rb.velocity.x, -10, rb.velocity.z);
         this.transform.GetChild(0).gameObject.SetActive(false);
         PlayerAnimator.SetFloat("isFly", -1);
+        PlayerAnimator.SetInteger("isRunning", 1);
     }
 }
