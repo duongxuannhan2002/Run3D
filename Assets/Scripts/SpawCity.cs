@@ -8,9 +8,7 @@ public class SpawCity : MonoBehaviour
     GameObject Player;
     [SerializeField] GameObject[] City;
     bool Spawned = false;
-    void Start()
-    {
-    }
+    public static int value;
 
     // Update is called once per frame
     void Update()
@@ -22,10 +20,10 @@ public class SpawCity : MonoBehaviour
         }
         if (Player.transform.position.z > transform.position.z && !Spawned)
         {
-            int value = Random.Range(0, 2);
-            Debug.Log(value);
+            value++;
             Instantiate(City[value], new Vector3(transform.position.x, transform.position.y, transform.position.z + 519f), transform.rotation);
             Spawned = true;
+            if (value == 2) value = -1;
         }
     }
 }
