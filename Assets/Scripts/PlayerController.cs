@@ -183,14 +183,14 @@ public class PlayerController : MonoBehaviour
             playerCollider.height /= 3;
             playerCollider.center = new Vector3(0, -0.3f, 0);
             StartCoroutine(RollAnim());
+            PlayerAnimator.SetFloat("isRoll", 1);
             PlayerAnimator.SetInteger("isRunning", 0);
             AudioManager.Instance.PlaySoundJump();
         }
     }
     IEnumerator RollAnim()
     {
-        PlayerAnimator.SetFloat("isRoll", 1);
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.6f);
         playerCollider.height *= 3;
         playerCollider.center = new Vector3(0, 0, 0);
         PlayerAnimator.SetFloat("isRoll", 0);
