@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6206987362783012528}
   - component: {fileID: 8831519653423066239}
   - component: {fileID: 1365120730873488986}
-  - component: {fileID: 7770242750725452237}
+  - component: {fileID: 2487826909885413535}
   m_Layer: 0
   m_Name: Barrier Can T
   m_TagString: Object
@@ -84,7 +84,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7770242750725452237
+--- !u!65 &2487826909885413535
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,8 +103,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 0.61242396, y: 1.6934702, z: 1.689221}
-  m_Center: {x: 32.069355, y: -14.841104, z: 3.1552117}
+  m_Size: {x: 1.4421005, y: 1.6934696, z: 1.685543}
+  m_Center: {x: 32.484146, y: -14.841099, z: 3.1570516}
 --- !u!1 &4830868638408804062
 GameObject:
   m_ObjectHideFlags: 0

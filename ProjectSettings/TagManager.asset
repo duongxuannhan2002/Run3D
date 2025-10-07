@@ -12,6 +12,7 @@ TagManager:
   - Shied
   - Fly
   - Wall
+  - Slope
   layers:
   - Default
   - TransparentFX

@@ -53,8 +53,10 @@ public class PlayerController : MonoBehaviour
     {
         if (IsGameStarted)
         {
-            // chạy thẳng
-            transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.z + RunSpeed * Time.deltaTime);
+            Vector3 moveDir = HandleSlopeDetection();
+
+            transform.position += moveDir * RunSpeed * Time.deltaTime;
+
             // Mobile
             DetectSwipe();
             // PC
@@ -66,6 +68,24 @@ public class PlayerController : MonoBehaviour
             }
         }
         
+    }
+
+    private Vector3 HandleSlopeDetection()
+    {
+        // hướng mặc định là chạy thẳng
+        Vector3 moveDir = Vector3.forward;
+
+        // Bắn tia trước mặt
+        Ray ray = new Ray(transform.position + Vector3.up * 0.5f, transform.forward);
+        if (Physics.Raycast(ray, out RaycastHit hit, 1.2f))
+        {
+            if (hit.collider.CompareTag("Slope"))
+            {
+                // Thực hiện hành động khi gặp mặt dốc
+                moveDir = Quaternion.Euler(-70, 0, 0) * moveDir;
+            }
+        }
+        return moveDir;
     }
 
     private void DetectSwipe()
@@ -160,8 +180,8 @@ public class PlayerController : MonoBehaviour
         if (isGrounded && !isRoll)
         {
             isRoll = true;
-            playerCollider.height /= 2;
-            playerCollider.center = new Vector3(0, -0.5f, 0);
+            playerCollider.height /= 3;
+            playerCollider.center = new Vector3(0, -0.3f, 0);
             StartCoroutine(RollAnim());
             AudioManager.Instance.PlaySoundJump();
         }
@@ -170,7 +190,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerAnimator.SetFloat("isRoll", 1);
         yield return new WaitForSeconds(0.6f);
-        playerCollider.height *= 2;
+        playerCollider.height *= 3;
         playerCollider.center = new Vector3(0, 0, 0);
         PlayerAnimator.SetFloat("isRoll", 0);
         isRoll = false;
@@ -181,6 +201,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!IsGameOver)
         {
+
+            
             Vector3 targetPos = transform.position;
 
             if (CurrentPos == 0) targetPos.x = CenterPos.position.x;
@@ -255,6 +277,16 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = true;
             isJump = false;
+            PlayerAnimator.SetInteger("isRunning", 1);
+            Debug.Log("hello");
+        }
+
+        if (collision.collider.CompareTag("Ground") || collision.collider.CompareTag("Car"))
+        {
+            if (isJump)
+            {
+                isJump = false;
+            } 
         }
 
         if (collision.collider.CompareTag("Magnet"))
@@ -275,6 +307,7 @@ public class PlayerController : MonoBehaviour
         {
             AudioManager.Instance.PlaySoundCollectItem();
             isFly = true;
+            PlayerAnimator.SetInteger("isRunning", 0);
             StartCoroutine(FlyCountDown());
             Destroy(collision.collider.gameObject);
             this.transform.GetChild(0).gameObject.SetActive(true);
@@ -287,9 +320,7 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
-
     }
-
 
     public void StartGame()
     {

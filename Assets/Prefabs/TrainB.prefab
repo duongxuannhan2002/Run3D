@@ -358,8 +358,8 @@ GameObject:
   - component: {fileID: 6343781504097447439}
   - component: {fileID: 8633968553167177789}
   - component: {fileID: 1219841946301050957}
-  - component: {fileID: 7238951162374744745}
   - component: {fileID: 9138259805240835631}
+  - component: {fileID: 3759763917777748529}
   m_Layer: 0
   m_Name: TrainB
   m_TagString: Car
@@ -435,27 +435,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &7238951162374744745
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6452622337253539438}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 6.0843124, y: 2.0863528, z: 3.1348507}
-  m_Center: {x: 57.570168, y: -12.7433405, z: 3.0066557}
 --- !u!54 &9138259805240835631
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -483,3 +462,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!65 &3759763917777748529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6452622337253539438}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 6.084305, y: 2.0863528, z: 2.9814785}
+  m_Center: {x: 57.570152, y: -12.743337, z: 2.9299695}
